@@ -1,10 +1,11 @@
 icon: https://github.com/okteto/polling/raw/master/icon.png
 deploy:
+  - okteto build -t okteto.dev/gulimall:${OKTETO_GIT_COMMIT} gulimall
   - okteto build -t okteto.dev/gulimall-gateway:${OKTETO_GIT_COMMIT} gulimall-gateway
   - okteto build -t okteto.dev/renren-fast:${OKTETO_GIT_COMMIT} renren-fast
   - cd k8s && kustomize edit set image gulimall-gateway=okteto.dev/gulimall-gateway:${OKTETO_GIT_COMMIT}
   - cd k8s && kustomize edit set image renren-fast=okteto.dev/renren-fast:${OKTETO_GIT_COMMIT}
   - kubectl apply -k k8s
 devs:
-  - frontend/okteto.yml
-  - api/okteto.yml
+  - gulimall-gateway/okteto.yml
+  - renren-fast/okteto.yml
