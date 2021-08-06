@@ -19,4 +19,4 @@ COPY . .
 #RUN ./mvnw dependency:go-offline -B
 
 # Package the application
-RUN ./mvnw clean install -DskipTests
+RUN ./mvnw install -DskipTests
