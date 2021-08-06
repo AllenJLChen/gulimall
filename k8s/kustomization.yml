@@ -1,0 +1,25 @@
+# The secrets file should not be checked into Git. It's published only for demonstration purpose.
+secretGenerator:
+- literals:
+  - password=root
+  name: mysql-root-pass
+- literals:
+  - username=gulimall
+  - password=gulimall
+  name: mysql-user-pass
+- literals:
+  - gulimall_admin_db=gulimall_admin
+#  - gulimall_admin_db=gulimall_admin
+  - gulimall_admin_url=jdbc:mysql://mysql:3306/gulimall_admin?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+#  - gulimall_admin_url=jdbc:mysql://mysql:3306/gulimall_admin?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+  name: mysql-db-url
+resources:
+- renren-fast.yml
+- gulimall-gateway.yml
+- ingressv1.yml
+- mysql.yml
+images:
+- name: gulimall-gateway
+- name: renren-fast
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization

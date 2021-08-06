@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gulimall-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gulimall-gateway
+  template:
+    metadata:
+      labels:
+        app: gulimall-gateway
+    spec:
+      terminationGracePeriodSeconds: 0
+      containers:
+      - name: api
+#        image: okteto/hello-world:java-maven
+        image: gulimall-gateway
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 88
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: gulimall-gateway
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+  labels:
+    app: gulimall-gateway
+spec:
+  type: ClusterIP
+  ports:
+    - name: gulimall-gateway
+      port: 88
+  selector:
+    app: gulimall-gateway

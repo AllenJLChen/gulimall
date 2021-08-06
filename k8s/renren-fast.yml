@@ -1,0 +1,53 @@
+apiVersion: apps/v1           # API version
+kind: Deployment              # Type of kubernetes resource
+metadata:
+  name: renren-fast    # Name of the kubernetes resource
+  labels:                     # Labels that will be applied to this resource
+    app: renren-fast
+spec:
+  replicas: 1                 # No. of replicas/pods to run in this deployment
+  selector:
+    matchLabels:              # The deployment applies to any pods mayching the specified labels
+      app: renren-fast
+  template:                   # Template for creating the pods in this deployment
+    metadata:
+      labels:                 # Labels that will be applied to each Pod in this deployment
+        app: renren-fast
+    spec:                     # Spec for the containers that will be run in the Pods
+      containers:
+      - name: renren-fast
+        image: renren-fast
+        ports:
+          - name: http
+            containerPort: 8080 # The port that the container exposes
+        env:                  # Environment variables supplied to the Pod
+        - name: SPRING_DATASOURCE_USERNAME # Name of the environment variable
+          valueFrom:          # Get the value of environment variable from kubernetes secrets
+            secretKeyRef:
+              name: mysql-user-pass
+              key: username
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-user-pass
+              key: password
+        - name: SPRING_DATASOURCE_URL
+          valueFrom:
+            secretKeyRef:
+              name: mysql-db-url
+              key: gulimall_admin_url
+---
+apiVersion: v1                # API version
+kind: Service                 # Type of the kubernetes resource
+metadata:                     
+  name: renren-fast    # Name of the kubernetes resource
+  labels:                     # Labels that will be applied to this resource
+    app: renren-fast
+spec:                         
+  type: ClusterIP                # Exposes the service by opening a port on each node
+  selector:
+    app: renren-fast   # The service exposes Pods with label `app=polling-app-server`
+  ports:                      # Forward incoming connections on port 8080 to the target port 8080
+  - name: http
+    port: 8080
+    targetPort: 8080
