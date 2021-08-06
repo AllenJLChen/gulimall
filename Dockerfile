@@ -5,12 +5,18 @@ FROM openjdk:8-jdk-alpine as build
 WORKDIR /app
 
 # Copy maven executable to the image
-COPY mvnw .
-COPY maven maven
+#COPY mvnw .
+#COPY maven maven
 
 # Copy the pom.xml file
-COPY pom.xml .
+#COPY pom.xml .
+COPY . .
 
+
+# Build all the dependencies in preparation to go offline.
+# This is a separate step so the dependencies will be cached unless
+# the pom.xml file has changed.
+RUN ./mvnw dependency:go-offline -B
 
 # Package the application
 RUN ./mvnw clean install -DskipTests
