@@ -1,6 +1,6 @@
 icon: https://github.com/okteto/polling/raw/master/icon.png
 deploy:
-  - okteto build -t okteto.dev/gulimall:${OKTETO_GIT_COMMIT} gulimall
+  - okteto build -t okteto.dev/gulimall:${OKTETO_GIT_COMMIT}
   - okteto build -t okteto.dev/gulimall-gateway:${OKTETO_GIT_COMMIT} gulimall-gateway
   - okteto build -t okteto.dev/renren-fast:${OKTETO_GIT_COMMIT} renren-fast
   - cd k8s && kustomize edit set image gulimall-gateway=okteto.dev/gulimall-gateway:${OKTETO_GIT_COMMIT}
