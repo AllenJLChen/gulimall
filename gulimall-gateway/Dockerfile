@@ -1,7 +1,7 @@
 FROM gulimall:latest as build
 WORKDIR /code/gulimall-gateway
-COPY . /code/gulimall-gateway
-RUN mvn package
+#COPY . /code/gulimall-gateway
+RUN ./mvnw package
 
 FROM openjdk:8-jre
 EXPOSE 80
