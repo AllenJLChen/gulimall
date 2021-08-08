@@ -1,9 +1,9 @@
 FROM openjdk:8-jdk-alpine as build
 
-FROM maven
+#FROM maven
 WORKDIR /code
 COPY . /code/
-RUN ./mvnw clean install
+RUN ./mvnw clean install -DskipTests
 COPY . /code/
 
 #FROM openjdk:8-jre

@@ -1,4 +1,4 @@
-FROM gulimall:latest as build
+FROM registry.cloud.okteto.net/gulimall-allenjlchen/gulimall:latest as build
 WORKDIR /code/gulimall-gateway
 #COPY . /code/gulimall-gateway
 RUN ./mvnw package
