@@ -2,6 +2,7 @@ FROM maven as build
 WORKDIR /code
 COPY . /code/
 RUN ./mvnw clean install
+COPY . /code/
 
 #FROM openjdk:8-jre
 #EXPOSE 8080
