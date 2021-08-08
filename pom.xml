@@ -17,9 +17,10 @@
         <module>gulimall-order</module>
         <module>gulimall-product</module>
         <module>gulimall-ware</module>
+        <module>gulimall-third-party</module>
         <module>gulimall-search</module>
         <module>renren-fast</module>
-        <module>renren-generator</module>
+<!--        <module>renren-generator</module>-->
     </modules>
 
     <properties>
@@ -28,7 +29,7 @@
         <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
         <spring.cloud.alibaba.version>2.2.3.RELEASE</spring.cloud.alibaba.version>
-        <docker.image.prefix></docker.image.prefix>
+        <docker.image.prefix>allenjlchen</docker.image.prefix>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -152,23 +153,7 @@
                 <artifactId>wrapper-maven-plugin</artifactId>
                 <version>0.0.5</version>
             </plugin>
-            <!-- Docker maven plugin -->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <dockerDirectory>${project.basedir}</dockerDirectory>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
 
