@@ -20,7 +20,7 @@
         <module>gulimall-third-party</module>
         <module>gulimall-search</module>
         <module>renren-fast</module>
-<!--        <module>renren-generator</module>-->
+        <!--        <module>renren-generator</module>-->
     </modules>
 
     <properties>
@@ -96,6 +96,12 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>1.2.75</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.12</version>
+                <scope>provided</scope>
             </dependency>
 
             <!-- Modules version-->
