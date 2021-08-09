@@ -4,7 +4,7 @@ FROM openjdk:8-jdk-alpine as build
 WORKDIR /code
 COPY . /code/
 RUN ./mvnw clean install -DskipTests
-COPY . /code/
+#COPY . /code/
 
 #FROM openjdk:8-jre
 #EXPOSE 8080

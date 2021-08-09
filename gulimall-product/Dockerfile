@@ -7,10 +7,10 @@ WORKDIR /code
 RUN ./mvnw dependency:go-offline -B
 
 #FROM maven
-EXPOSE 8080
+EXPOSE 8083
 #WORKDIR /app
 #COPY --from=build /code/gulimall-gateway/target/*.jar .
 #COPY --from=build /code/gulimall-gateway/ .
 #CMD java -jar *.jar
 #CMD mvn spring-boot:run
-CMD cd gulimall-gateway/target && ls && java -jar *.jar
+CMD cd gulimall-product/target && ls && java -jar *.jar

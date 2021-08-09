@@ -1,16 +1,29 @@
 services:
+  gulimall-product:
+    build:
+      context: ./gulimall-product
+      dockerfile: ./gulimall-product/Dockerfile
   gulimall-gateway:
-    build: gulimall-gateway
+    build:
+      context: ./gulimall-gateway
+      dockerfile: ./gulimall-gateway/Dockerfile
     scale: 2
     ports:
-      - 88:88
-
-  redis:
-    image: mysql
+      - 8081:8081
+  renren-fast:
+    build:
+      context: ./renren-fast
+      dockerfile: ./renren-fast/Dockerfile
+    scale: 2
     ports:
-      - 6379
-    volumes:
-      - mysql:/data
-
-volumes:
-  mysql:
+      - 8080:8080
+#
+#  redis:
+#    image: mysql
+#    ports:
+#      - 6379
+#    volumes:
+#      - mysql:/data
+#
+#volumes:
+#  mysql:

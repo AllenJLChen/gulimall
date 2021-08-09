@@ -1,12 +1,16 @@
 name: gulimall-gateway
-image: okteto/maven:latest
+image: okteto/maven:3
+#image: okteto.dev/gulimall-gulimall-gateway:okteto
 command: bash
-workdir: /okteto
+#autocreate: true
+workdir: /usr/src/app
 volumes:
+#  - /code
   - /root/.m2
 sync:
-  - .:/okteto
+  - ../:/usr/src/app
 forward:
+  - 8080:8080
   - 5005:5005
 resources:
   limits:
