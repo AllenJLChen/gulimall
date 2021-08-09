@@ -10,7 +10,7 @@ FROM registry.cloud.okteto.net/monitor-allenjlchen/gulimall:okteto as build
 WORKDIR /code
 #COPY . /code/gulimall-gateway
 #RUN ./mvnw clean install -DskipTests
-RUN ./mvnw dependency:go-offline -B
+#RUN ./mvnw dependency:go-offline -B
 #FROM maven
 EXPOSE 8080
 #WORKDIR /app
