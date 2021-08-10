@@ -1,4 +1,8 @@
+server:
+  port: 8083
 spring:
+  application:
+    name: gulimall-coupon
   datasource:
     username: root
     password: root

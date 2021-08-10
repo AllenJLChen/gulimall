@@ -12,8 +12,6 @@ services:
     build:
       context: ./gulimall-gateway
       dockerfile: ./gulimall-gateway/Dockerfile
-#    volumes:
-#      - $HOME/.m2/repository:/root/.m2/repository
     scale: 1
     ports:
       - 8081:8081
@@ -21,8 +19,6 @@ services:
     build:
       context: ./renren-fast
       dockerfile: ./renren-fast/Dockerfile
-#    volumes:
-#      - $HOME/.m2/repository:/root/.m2/repository
     scale: 1
     ports:
       - 8080:8080
@@ -30,8 +26,6 @@ services:
     build:
       context: ./gulimall-coupon
       dockerfile: ./gulimall-coupon/Dockerfile
-    #    volumes:
-    #      - $HOME/.m2/repository:/root/.m2/repository
     scale: 1
     ports:
       - 8083:8083
@@ -39,47 +33,37 @@ services:
     build:
       context: ./gulimall-member
       dockerfile: ./gulimall-member/Dockerfile
-    #    volumes:
-    #      - $HOME/.m2/repository:/root/.m2/repository
     scale: 1
     ports:
       - 8084:8084
-  gulimall-order:
-    build:
-      context: ./gulimall-order
-      dockerfile: ./gulimall-order/Dockerfile
-    #    volumes:
-    #      - $HOME/.m2/repository:/root/.m2/repository
-    scale: 1
-    ports:
-      - 8085:8085
-  gulimall-search:
-    build:
-      context: ./gulimall-search
-      dockerfile: ./gulimall-search/Dockerfile
-    #    volumes:
-    #      - $HOME/.m2/repository:/root/.m2/repository
-    scale: 1
-    ports:
-      - 8086:8086
-  gulimall-third-party:
-    build:
-      context: ./gulimall-third-party
-      dockerfile: ./gulimall-third-party/Dockerfile
-    #    volumes:
-    #      - $HOME/.m2/repository:/root/.m2/repository
-    scale: 1
-    ports:
-      - 8087:8087
-  gulimall-ware:
-    build:
-      context: ./gulimall-ware
-      dockerfile: ./gulimall-ware/Dockerfile
-    #    volumes:
-    #      - $HOME/.m2/repository:/root/.m2/repository
-    scale: 1
-    ports:
-      - 8088:8088
+#  gulimall-order:
+#    build:
+#      context: ./gulimall-order
+#      dockerfile: ./gulimall-order/Dockerfile
+#    scale: 1
+#    ports:
+#      - 8085:8085
+#  gulimall-search:
+#    build:
+#      context: ./gulimall-search
+#      dockerfile: ./gulimall-search/Dockerfile
+#    scale: 1
+#    ports:
+#      - 8086:8086
+#  gulimall-third-party:
+#    build:
+#      context: ./gulimall-third-party
+#      dockerfile: ./gulimall-third-party/Dockerfile
+#    scale: 1
+#    ports:
+#      - 8087:8087
+#  gulimall-ware:
+#    build:
+#      context: ./gulimall-ware
+#      dockerfile: ./gulimall-ware/Dockerfile
+#    scale: 1
+#    ports:
+#      - 8088:8088
 #
 #  redis:
 #    image: mysql

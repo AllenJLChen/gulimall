@@ -18,6 +18,6 @@ EXPOSE 8080
 #COPY --from=build /code/gulimall-gateway/target/*.jar .
 #COPY --from=build /code .
 #CMD java -jar *.jar
-#CMD cd renren-fast && ./mvnw spring-boot:run
-CMD cd renren-fast/target && ls && java -jar *.jar
+CMD cd renren-fast && ./mvnw clean install spring-boot:run
+#CMD cd renren-fast/target && ls && java -jar *.jar
 #RUN cd renren-fast && ./mvnw spring-boot:run
