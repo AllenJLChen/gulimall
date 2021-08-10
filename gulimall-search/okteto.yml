@@ -1,4 +1,4 @@
-name: renren-fast
+name: gulimall-search
 image: okteto/maven:latest
 command: bash
 workdir: /gulimall/src
@@ -7,7 +7,7 @@ volumes:
 sync:
   - ../:/gulimall/src
 forward:
-  - 8080:8080
+  - 8086:8086
   - 5005:5005
 resources:
   limits:

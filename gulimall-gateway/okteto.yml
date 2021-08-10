@@ -3,14 +3,14 @@ image: okteto/maven:3
 #image: okteto.dev/gulimall-gulimall-gateway:okteto
 command: bash
 #autocreate: true
-workdir: /usr/src/app
+workdir: /gulimall/src
 volumes:
 #  - /code
   - /root/.m2
 sync:
-  - ../:/usr/src/app
+  - ../:/gulimall/src
 forward:
-  - 8080:8080
+  - 8081:8081
   - 5005:5005
 resources:
   limits:

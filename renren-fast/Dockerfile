@@ -6,7 +6,7 @@
 #RUN bash -c 'touch /app.jar'
 #ENTRYPOINT ["java","-jar","/app.jar"]
 
-FROM registry.cloud.okteto.net/monitor-allenjlchen/gulimall:okteto as build
+FROM registry.cloud.okteto.net/gulimall-allenjlchen/gulimall:okteto as build
 WORKDIR /code
 #COPY . /code/gulimall-gateway
 #RUN ./mvnw clean install -DskipTests

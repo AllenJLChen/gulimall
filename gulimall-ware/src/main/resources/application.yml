@@ -1,17 +1,19 @@
 server:
-  port: 11000
+  port: 8088
 
 spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://192.168.56.100:3306/gulimall_wms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#    url: jdbc:mysql://192.168.56.100:3306/gulimall_wms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://mysql.allenjlchen:3306/gulimall_wms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+#        server-addr: 127.0.0.1:8848
+        server-addr: nacos.allenjlchen
   application:
     name: gulimall-ware
 

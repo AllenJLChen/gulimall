@@ -1,13 +1,16 @@
-name: renren-fast
-image: okteto/maven:latest
+name: gulimall-product
+image: okteto/maven:3
+#image: okteto.dev/gulimall-gulimall-gateway:okteto
 command: bash
+#autocreate: true
 workdir: /gulimall/src
 volumes:
+#  - /code
   - /root/.m2
 sync:
   - ../:/gulimall/src
 forward:
-  - 8080:8080
+  - 8082:8082
   - 5005:5005
 resources:
   limits:
